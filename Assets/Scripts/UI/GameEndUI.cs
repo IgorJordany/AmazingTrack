@@ -14,10 +14,10 @@ namespace AmazingTrack
         {
             ref var playerStatComponent = ref playerStatService.GetPlayerStat();
             
-            string text = "Your score: " + playerStatComponent.Score;
+            string text = "Sua pontação: " + playerStatComponent.Score;
             bool newRecord = playerStatComponent.Score == playerStatComponent.HighScore;
             if (newRecord)
-                text += "\nNew record !";
+                text += "\nNovo recorde !";
 
             scoreText.text = text;
         }

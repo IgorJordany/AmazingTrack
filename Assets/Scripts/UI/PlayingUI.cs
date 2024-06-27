@@ -22,19 +22,19 @@ namespace AmazingTrack
             
             if (playerStatComponent.Score != score)
             {
-                scoreText.text = "Score: " + playerStatComponent.Score;
+                scoreText.text = "Pontuação: " + playerStatComponent.Score;
                 score = playerStatComponent.Score;
             }
 
             if (playerStatComponent.HighScore != highScore)
             {
-                highScoreText.text = "High: " + playerStatComponent.HighScore;
+                highScoreText.text = "Mais alta: " + playerStatComponent.HighScore;
                 highScore = playerStatComponent.HighScore;
             }
 
             if (playerStatComponent.Level != level)
             {
-                levelText.text = "Level: " + playerStatComponent.Level;
+                levelText.text = "Nível: " + playerStatComponent.Level;
                 level = playerStatComponent.Level;
             }
         }

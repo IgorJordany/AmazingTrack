@@ -1,6 +1,6 @@
-﻿using Leopotam.EcsLite;
+﻿using System.Runtime.InteropServices;
+using Leopotam.EcsLite;
 using UnityEngine;
-
 namespace AmazingTrack
 {
     public class PlayerStatService
@@ -61,6 +61,7 @@ namespace AmazingTrack
                 playerStatComponent.HighScore = playerStatComponent.Score;
 
             StoreResult(playerStatComponent);
+            RequestQuestion();
         }
 
         public void Clear()
@@ -79,5 +80,39 @@ namespace AmazingTrack
             if (PlayerPrefs.HasKey("AmazingTrack_HighScore"))
                 playerStatComponent.HighScore = PlayerPrefs.GetInt("AmazingTrack_HighScore");
         }
+
+        [DllImport("__Internal")]
+        private static extern void TriggerQuestion();
+        private void RequestQuestion()
+        {
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+	PauseGame();
+    TriggerQuestion();
+#endif
+        }
+
+        public void PauseGame()
+        {
+            Time.timeScale = 0;
+            AudioListener.volume = 0;
+        }
+
+        public void ResumeGame()
+        {
+            Time.timeScale = 1;
+            AudioListener.volume = 1;
+        }
+
+        public void MuteAllSound()
+        {
+            AudioListener.volume = 0;
+        }
+
+        public void UnMuteAllSound()
+        {
+            AudioListener.volume = 1;
+        }
+
+        
     }
 }
