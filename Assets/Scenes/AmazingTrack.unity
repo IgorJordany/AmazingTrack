@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 2143700190}
   - component: {fileID: 2143700191}
   m_Layer: 0
-  m_Name: U4heroManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
